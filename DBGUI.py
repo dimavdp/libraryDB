@@ -22,9 +22,9 @@ class Window(object):
         title_label = Label(window, text = "Title")
         title_label.grid(row=0,column=0)
         author_label = Label(window, text = "Author")
-        author_label.grid(row = 0, column = 2)
+        author_label.grid(row = 1, column = 0)
         remain_label = Label(window, text = "Remain")
-        remain_label.grid(row = 1, column = 0)
+        remain_label.grid(row = 2, column = 0)
 
         #   Entry - это виджет, позволяющий пользователю ввести одну строку текста. 
         self.title_text = StringVar()
@@ -32,15 +32,15 @@ class Window(object):
         self.title_entry.grid(row = 0, column = 1)
         self.author_text = StringVar()
         self.author_entry = Entry(window, textvariable = self.author_text)
-        self.author_entry.grid(row = 0, column = 3)
+        self.author_entry.grid(row = 1, column = 1)
         self.remain_text = StringVar()
         self.remain_entry = Entry(window, textvariable = self.remain_text)
-        self.remain_entry.grid(row = 1, column = 1)
+        self.remain_entry.grid(row = 2, column = 1)
 
         #   Listbox - это виджет, который представляет собой список,
         #   из элементов которого пользователь может выбирать один или несколько пунктов. 
-        self.library_listbox = Listbox(window, height = 6, width = 35)
-        self.library_listbox.grid(row = 2, column = 0, rowspan = 6, columnspan = 2)
+        self.library_listbox = Listbox(window, height = 8, width = 45)
+        self.library_listbox.grid(row = 3, column = 0, rowspan = 6, columnspan = 2)
         self.library_listbox.bind('<<ListboxSelect>>', self.get_selected_row)
 
         #   Scrollbar даёт возможность пользователю "прокрутить" другой виджет (например текстовое поле). 
@@ -52,22 +52,22 @@ class Window(object):
         #   Cоздание кнопок
         #   Кнопка View all
         view_command_button = Button(window, text="View all", width=12,command=self.view_command)
-        view_command_button.grid(row = 2, column = 3)
+        view_command_button.grid(row = 3, column = 3)
         #   Кнопка Search Entry
         search_command_button = Button(window, text = "Search entry", width = 12, command = self.search_command)
-        search_command_button.grid(row = 3, column = 3)
+        search_command_button.grid(row = 4, column = 3)
         #   Кнопка Add Entry 
         add_command_button = Button(window, text = "Add entry", width = 12, command = self.add_command)
-        add_command_button.grid(row = 4, column = 3)
+        add_command_button.grid(row = 5, column = 3)
         #   Кнопка Update selected
         update_command_button = Button(window, text = "Update selected", width = 12, command = self.update_command)
-        update_command_button.grid(row = 5, column = 3)
+        update_command_button.grid(row = 6, column = 3)
         #   Кнопка Delete selected
         delete_command_button = Button(window, text = "Delete selected", width = 12, command = self.delete_command)
-        delete_command_button.grid(row = 6, column = 3)
+        delete_command_button.grid(row = 7, column = 3)
         #   Кнопка Close
         close_button = Button(window, text = "Close", width = 12, command = window.destroy)
-        close_button.grid(row = 7, column = 3)
+        close_button.grid(row = 8, column = 3)
 
     #   Метод обработки данных в строках базы данных
     def get_selected_row(self, event):
